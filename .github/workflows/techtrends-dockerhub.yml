@@ -43,7 +43,7 @@ jobs:
 
         with:
           context: .
-          file: .project/techtrends/Dockerfile
+          file: ./project/techtrends/Dockerfile
           platforms: linux/amd64
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/techtrends:latest
