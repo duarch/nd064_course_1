@@ -3,12 +3,12 @@ namespace:
  
 service:
   port: 5111
-  type: ClusterIP
+#   type: ClusterIP
 
-image:
-  repository: duarch/techtrends
-  tag: latest
-  pullPolicy: Always
+# image:
+#   repository: duarch/techtrends
+#   tag: latest
+#   pullPolicy: Always
 
 replicaCount: 3
 
