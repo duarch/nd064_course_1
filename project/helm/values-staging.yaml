@@ -3,6 +3,12 @@ namespace:
  
 service:
   port: 5111
+  type: ClusterIP
+
+image:
+  repository: techtrends
+  tag: latest
+  pullPolicy: IfNotPresent
 
 replicaCount: 3
 
@@ -12,4 +18,4 @@ resources:
     memory: 90Mi
   limits:
     cpu: 500m
-    memory: 128mi
+    memory: 128mi 

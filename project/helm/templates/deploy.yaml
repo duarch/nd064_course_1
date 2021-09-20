@@ -1,16 +1,38 @@
-# yaml-language-server: $schema=https://json-schema.org/draft-07/schema#
-# Problem that is caused by the name of file "deploy.yaml" as we can see here https://github.com/redhat-developer/vscode-yaml/issues/397
-namespace: sandbox
-image: techtrends:latest
-name: techtrends
-replicas: 1
-resources:
-  requests: CPU 250m and memory 64Mi
-  limits: CPU 500m and memory 128Mi
-container port: 3111
-liveness probe:
-  path: /healthz
-  port: 3111
-readiness probe:
-  path: /healthz
-  port: 3111
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: techtrends
+  labels:
+    app: techtrends
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: techtrends
+  template:
+    metadata:
+      labels:
+        app: techtrends
+    spec:
+       containers:
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          name: techtrends
+          ports:
+            - containerPort:  {{ .Values.containerPort }}
+              protocol: {{ .Values.service.protocol }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.resources.limits.cpu }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.httpGet.path }}
+              port: {{ .Values.livenessProbe.httpGet.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.httpGet.path }}
+              port: {{ .Values.livenessProbe.httpGet.port }}

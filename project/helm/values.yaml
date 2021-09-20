@@ -8,7 +8,7 @@ service:
   type: ClusterIP
 
 image:
-  repository: techtrends 
+  repository: duarch/techtrends 
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -24,5 +24,12 @@ resources:
 
 containerPort: 3111
 
-livenessProbe path: /healthz
-readiness path: /healthz
+livenessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111
+
+readinessProbe:
+    httpGet:
+      path: /healthz
+      port: 3111

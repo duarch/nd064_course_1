@@ -1,1 +1,4 @@
-name: sandbox
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .Values.namespace.name }}
