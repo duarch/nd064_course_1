@@ -1,0 +1,6 @@
+namespace: sandbox
+name: techtrends
+port: 4111
+target port: 3111
+protocol: TCP
+type: ClusterIP
