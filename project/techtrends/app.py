@@ -4,28 +4,13 @@ import sys
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
-from logging.config import dictConfig
 
-dictConfig({
-    'version': 1,
-    'formatters': {'default': {
-        'format': '%(levelname)s: %(name)-2s - [%(asctime)s] - %(message)s',
-    }},
-    'handlers': {'wsgi': {
-        'class': 'logging.StreamHandler',
-        'stream': 'ext://flask.logging.wsgi_errors_stream',
-        'formatter': 'default'
-    }},
-    'root': {
-        'level': 'INFO',
-        'handlers': ['wsgi']
-    }
-})
 
+format_output = '%(levelname)s: %(name)-2s - [%(asctime)s] - %(message)s'
 file_handler = logging.FileHandler('app.log')
 stdout_handler = logging.StreamHandler(sys.stdout)
-stderr_handler = logging.StreamHandler(sys.stderr) 
-handlers = [stderr_handler, stdout_handler, file_handler]
+# stderr_handler = logging.StreamHandler(sys.stderr) 
+handlers = [stdout_handler, file_handler]
 
 
 db_connection_count = 0
@@ -151,5 +136,5 @@ def metrics():
 
 # start the application on port 3111
 if __name__ == "__main__":
-    logging.basicConfig(filename='app.log', level=logging.DEBUG)
+    logging.basicConfig(format=format_output, handlers=handlers, level=logging.DEBUG)
     app.run(host='0.0.0.0', port='3111')

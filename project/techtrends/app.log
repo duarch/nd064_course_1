@@ -1,0 +1,29 @@
+WARNING: werkzeug - [2021-09-27 21:55:41,593] -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO: werkzeug - [2021-09-27 21:55:41,594] -  * Running on http://192.168.0.215:3111/ (Press CTRL+C to quit)
+INFO: werkzeug - [2021-09-27 21:55:44,873] - 192.168.0.215 - - [27/Sep/2021 21:55:44] "GET / HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:45,077] - 192.168.0.215 - - [27/Sep/2021 21:55:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: app - [2021-09-27 21:55:47,318] - Article "Kubernetes Certification" retrieved!
+INFO: werkzeug - [2021-09-27 21:55:47,322] - 192.168.0.215 - - [27/Sep/2021 21:55:47] "GET /6 HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:47,341] - 192.168.0.215 - - [27/Sep/2021 21:55:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: werkzeug - [2021-09-27 21:55:49,449] - 192.168.0.215 - - [27/Sep/2021 21:55:49] "GET /create HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:49,467] - 192.168.0.215 - - [27/Sep/2021 21:55:49] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: app - [2021-09-27 21:55:54,200] - A new article "Preciso de atendimento!!!" was created
+INFO: werkzeug - [2021-09-27 21:55:54,201] - 192.168.0.215 - - [27/Sep/2021 21:55:54] "[32mPOST /create HTTP/1.1[0m" 302 -
+INFO: werkzeug - [2021-09-27 21:55:54,211] - 192.168.0.215 - - [27/Sep/2021 21:55:54] "GET / HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:54,229] - 192.168.0.215 - - [27/Sep/2021 21:55:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: app - [2021-09-27 21:55:58,108] - The "About Us" page is retrieved
+INFO: werkzeug - [2021-09-27 21:55:58,112] - 192.168.0.215 - - [27/Sep/2021 21:55:58] "GET /about HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:58,126] - 192.168.0.215 - - [27/Sep/2021 21:55:58] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: werkzeug - [2021-09-27 21:55:59,380] - 192.168.0.215 - - [27/Sep/2021 21:55:59] "GET / HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:55:59,394] - 192.168.0.215 - - [27/Sep/2021 21:55:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: app - [2021-09-27 21:56:01,485] - Article "2020 CNCF Annual Report" retrieved!
+INFO: werkzeug - [2021-09-27 21:56:01,485] - 192.168.0.215 - - [27/Sep/2021 21:56:01] "GET /1 HTTP/1.1" 200 -
+INFO: werkzeug - [2021-09-27 21:56:01,497] - 192.168.0.215 - - [27/Sep/2021 21:56:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+ERROR: app - [2021-09-27 21:56:05,944] - A non-existing article is accessed
+INFO: werkzeug - [2021-09-27 21:56:05,947] - 192.168.0.215 - - [27/Sep/2021 21:56:05] "[33mGET /46 HTTP/1.1[0m" 404 -
+INFO: werkzeug - [2021-09-27 21:56:05,965] - 192.168.0.215 - - [27/Sep/2021 21:56:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO: app - [2021-09-27 21:56:13,069] - Metrics request successfull
+INFO: werkzeug - [2021-09-27 21:56:13,080] - 192.168.0.215 - - [27/Sep/2021 21:56:13] "GET /metrics HTTP/1.1" 200 -
+INFO: app - [2021-09-27 21:56:22,582] - Status request successfull
+INFO: werkzeug - [2021-09-27 21:56:22,583] - 192.168.0.215 - - [27/Sep/2021 21:56:22] "GET /healthz HTTP/1.1" 200 -
