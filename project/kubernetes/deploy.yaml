@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: techtrends
   labels:
     app: techtrends
+  name: techtrends
   namespace: sandbox
 spec:
   replicas: 1
@@ -15,19 +15,13 @@ spec:
       labels:
         app: techtrends
     spec:
-       containers:
-        - image: duarch/techtrends:latest
+      containers:
+      - image: duarch/techtrends:latest
         name: techtrends
+        imagePullPolicy: IfNotPresent
         ports:
-          - containerPort:  3111
-            protocol: TCP
-        resources:
-          requests:
-            memory: 64mi
-            cpu: 250m
-          limits:
-            memory: 128mi
-            cpu: 500m
+        - containerPort: 3111
+          protocol: TCP
         readinessProbe:
           httpGet:
             path: /healthz
@@ -36,3 +30,11 @@ spec:
           httpGet:
             path: /healthz
             port: 3111
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 250m
+          limits:
+            memory: 128Mi
+            cpu: 500m
+~                      
