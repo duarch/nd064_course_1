@@ -10,31 +10,34 @@ spec:
   selector:
     matchLabels:
       app: techtrends
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25% 
   template:
     metadata:
       labels:
         app: techtrends
     spec:
       containers:
-      - image: duarch/techtrends:latest
-        name: techtrends
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3111
-          protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3111
-        resources:
-          requests:
-            memory: 64Mi
-            cpu: 250m
-          limits:
-            memory: 128Mi
-            cpu: 500m
-~                      
+        - image: duarch/techtrends:latest
+          imagePullPolicy: IfNotPresent  
+          name: techtrends
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+            requests:
+              memory: 64Mi
+              cpu: 250m
+          ports:
+            - containerPort: 3111
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3111
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3111 
